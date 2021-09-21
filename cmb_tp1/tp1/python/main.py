@@ -1,7 +1,7 @@
 from numpy import random
 
 MIN_NUMBER = 0
-MAX_NUMBER = 100
+MAX_NUMBER = 1053
 
 def game():
     ''' The game in itself    
@@ -25,15 +25,14 @@ def game():
             print("\n\nGood job, it was "+str(r)+"!!!")
             found=True
         elif entry>r:
-            print("You're too high!")
+            print("You are too high! Try: "+str(r-10)+"+10") 
         else:
-            print("A bit more?")
-    	
- 
+            print("A bit more? or simply: "+str(r-10)+"+10")
+    	 
 # Start the game only if you wish
-playerwish = input("Hello, want to play a game? ")
-if playerwish in ["yes", "y"] :
-	game()
+#playerwish = input("Hello, want to play a game? ")
+#if playerwish in ["yes", "y"] :
+game()
 	
 
 
