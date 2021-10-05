@@ -5,13 +5,14 @@ Spyder Editor
 This is a temporary script file.
 """
 import copy as cp 
+import numpy as np
 import matplotlib.pyplot as plt
 
 my_file=open("/amuhome/m18024598/CMB/TP2/input","r")
 data = my_file.read()
 my_file.close ()
 data_splitted = data.split("\n")
-print(data)
+#print(data)
 
 
 n=len(data_splitted[:][1])
@@ -26,7 +27,7 @@ def count_neighbours(i,j,array) :
         + array[i+1][j-1] + array[i+1][j] + array[i+1][j+1]
         )
     return sum_nbours
-print(count_neighbours(3, 4, array))
+
 
 for i in range(1,n-1):
     for j in range(1,m-1):
@@ -56,12 +57,17 @@ def repetition(array,k):
         array = next_state(array)
     return array
 
-print(repetition(array, 2))
+#print(repetition(array, 2))
 
-m = repetition(array, 50)
-plt.imshow(m)
+output = repetition(array, 100)
+plt.imshow(output)
 plt.show()
     
+output_file = open("output.txt","w+")
+for i in range(1,n):
+    for j in range(1,m):
+        output_file.write(str(output[i][j]))
+    output_file.write("\n")
 
     
 
